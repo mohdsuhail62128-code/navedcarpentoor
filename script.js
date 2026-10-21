@@ -11,7 +11,7 @@ const siteConfig = {
   city: "",
 
   // Contact links. Khali chhodo to button par click karne se hint dikhega.
-  whatsapp: "9792537568",   // country code ke saath, sirf digits. Example: "919XXXXXXXXX"
+  whatsapp: "+91 9792537568",   // country code ke saath, sirf digits. Example: "919XXXXXXXXX"
   instagram: "@ZUNAIDDD._ANSARI",  // sirf username. Example: "navedwoodcraft"
   facebook: "https://www.facebook.com/navedansari.ansari.52493",   // poora page link. Example: "https://facebook.com/yourpage"
 
