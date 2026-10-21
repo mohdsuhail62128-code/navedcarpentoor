@@ -1,0 +1,158 @@
+/* ==========================================================
+   Naved Wood Craft - admin.css
+   Admin drawer jo isi page ke right side me khulta hai.
+   ========================================================== */
+
+.adm {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 150;
+  width: min(430px, 100vw);
+  display: flex;
+  flex-direction: column;
+  background: var(--espresso, #2b2420);
+  color: #efe6d8;
+  font-family: var(--body, system-ui, sans-serif);
+  font-size: 0.95rem;
+  box-shadow: -14px 0 40px rgba(0, 0, 0, 0.35);
+  animation: adm-in 0.25s ease both;
+}
+.adm[hidden] { display: none; }
+
+@keyframes adm-in {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.adm-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid rgba(239, 230, 216, 0.15);
+}
+.adm-head strong { font-family: var(--display, Georgia, serif); font-size: 1.3rem; font-weight: 500; }
+.adm-head-btns { display: flex; gap: 0.5rem; }
+
+.adm-body { flex: 1; overflow-y: auto; padding: 1.1rem; }
+
+.adm h3 { font-family: var(--display, Georgia, serif); font-weight: 500; font-size: 1.25rem; margin: 0 0 0.8rem; }
+.adm-list-title { margin-top: 1.8rem; }
+
+.adm label { display: block; margin: 0.9rem 0 0.3rem; font-weight: 600; font-size: 0.9rem; }
+
+.adm input[type="text"],
+.adm input[type="password"],
+.adm input:not([type]) {
+  width: 100%;
+  font: inherit;
+  color: #2a211b;
+  background: #f6f2ea;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 0.6rem 0.7rem;
+}
+.adm input:focus { outline: none; border-color: var(--copper, #c98a4b); }
+
+/* buttons */
+.adm-btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #efe6d8;
+  background: rgba(239, 230, 216, 0.1);
+  border: 1px solid rgba(239, 230, 216, 0.28);
+  border-radius: 4px;
+  padding: 0.55rem 0.9rem;
+  margin: 0;
+  cursor: pointer;
+}
+.adm-btn:hover:not(:disabled) { background: rgba(239, 230, 216, 0.2); }
+.adm-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.adm-btn:focus-visible { outline: 3px solid var(--copper, #c98a4b); outline-offset: 2px; }
+
+.adm-primary { background: var(--copper, #c98a4b); border-color: var(--copper, #c98a4b); color: #2a1a0e; }
+.adm-primary:hover:not(:disabled) { background: var(--copper-light, #dba062); }
+
+.adm-danger { color: #ffb4a6; border-color: rgba(255, 180, 166, 0.45); }
+.adm-small { padding: 0.3rem 0.65rem; font-size: 0.82rem; }
+.adm-block { width: 100%; margin-top: 1rem; }
+
+.adm-drop {
+  width: 100%;
+  margin: 0;
+  padding: 1.1rem;
+  border-style: dashed;
+}
+
+.adm-error { margin-top: 0.8rem; color: #ffb4a6; font-weight: 600; }
+
+/* staged photos */
+.adm-staged { display: grid; gap: 0.5rem; margin-top: 0.7rem; }
+.adm-staged-row {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 0.6rem;
+  align-items: center;
+}
+.adm-staged-row img { width: 52px; height: 52px; object-fit: cover; border-radius: 4px; }
+
+/* saved projects */
+.adm-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.adm-empty { opacity: 0.7; font-size: 0.9rem; }
+
+.adm-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0.3rem 0.7rem;
+  padding: 0.6rem;
+  background: rgba(239, 230, 216, 0.07);
+  border-radius: 6px;
+}
+.adm-item img { width: 56px; height: 56px; object-fit: cover; border-radius: 4px; grid-row: span 2; }
+.adm-item-info { display: flex; flex-direction: column; min-width: 0; }
+.adm-item-info strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.adm-item-info span { opacity: 0.7; font-size: 0.85rem; }
+.adm-item-btns { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.adm-usage { margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.7; }
+
+.adm-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.adm-actions label.adm-btn { margin: 0; }
+
+.adm-note {
+  margin-top: 1.2rem;
+  padding: 0.8rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  background: rgba(201, 138, 75, 0.14);
+  border-left: 3px solid var(--copper, #c98a4b);
+  border-radius: 0 4px 4px 0;
+}
+
+/* desktop: site ko panel ke saath live dekh sako */
+@media (min-width: 900px) {
+  body.adm-open { padding-right: min(430px, 100vw); --wrap: min(1120px, calc(92vw - 430px)); }
+  body.adm-open .site-header { right: min(430px, 100vw); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adm { animation: none; }
+}
+
+/* footer ka Admin link */
+.adm-link {
+  color: inherit;
+  opacity: 0.6;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+.adm-link:hover { opacity: 1; }
+
+/* hidden attribute ko hamesha maano (buttons par display ne override kar diya tha) */
+.adm [hidden] { display: none !important; }
